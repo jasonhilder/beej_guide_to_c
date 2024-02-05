@@ -1,2 +1,2 @@
-# beej_guide_to_c
+# Beej's guide to C
 Notes and files while following Beej's Guide to C
