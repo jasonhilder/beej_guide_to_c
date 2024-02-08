@@ -66,3 +66,33 @@ Notice we are calling printf without defining or declaring a prototype, this is 
 ## 4.3 Empty Parameter List
 
 Always use void to indicate that a function takes no parameters. There’s never a reason to skip this in modern code.
+
+```
+void foo();
+void foo(void);  // Not the same!
+    
+```
+
+Leaving void out of the prototype indicates to the compiler that there is no additional information about the parameters to the function. 
+It effectively turns off all that type checking.
+
+With a prototype definitely use void when you have an empty parameter list.
+
+```
+#include <stdio.h>
+
+int main(void)
+{
+    int i;
+    int *p;  // this is NOT a dereference--this is a type "int*"
+
+    p = &i;  // p now points to i, p holds address of i
+
+    i = 10;  // i is now 10
+    *p = 20; // the thing p points to (namely i!) is now 20!!
+
+    printf("i is %d\n", i);   // prints "20"
+    printf("i is %d\n", *p);  // "20"! dereference-p is the same as i!
+}
+    
+```
